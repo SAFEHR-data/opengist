@@ -24,6 +24,7 @@ services:
     volumes:
       - "./data:/opengist"
       - "./config:/config"
+      - "./config/config.yml:/config.yml"
     environment:
       # OG_LOG_LEVEL: info
       # other configuration options

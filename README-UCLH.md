@@ -6,5 +6,5 @@ This is in `./data` rather than the usual `~/.opengist` location
 Might need moving to a volume with back up at a later date
 Ignored from .gitignore
 
-Config in `./config/config.yml`
+Config in `./config/config.yml` ... derived from `./config.yml` and referenced via volumes in docker-compose.yml
 Secrets in `./config/secrets.env`

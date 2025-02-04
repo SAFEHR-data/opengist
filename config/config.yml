@@ -103,7 +103,7 @@ oidc.discovery-url:
 
 # Instance name
 # Set your own custom name to be displayed instead of 'Opengist'
-custom.name:
+custom.name: SAFEHR-gist
 
 # Custom assets
 # Add your own custom assets, that are files relatives to $opengist-home/custom/
@@ -113,6 +113,8 @@ custom.favicon:
 # Static pages in footer (like legal notices, privacy policy, etc.)
 # The path can be a URL or a relative path to a file in the $opengist-home/custom/ directory
 custom.static-links:
+  - name: "via SAFEHR-data"
+    path: https://safehr-data.org
 #  - name: Gitea
 #    path: https://gitea.com
 #  - name: Legal notices
