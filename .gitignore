@@ -9,3 +9,6 @@ opengist
 build/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+secrets.env
+# Ignore the data directory 
+data/

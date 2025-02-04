@@ -1,0 +1,37 @@
+# UCLH proxy settings
+x-host-name: &host-name ${HOST_NAME}
+x-http-proxy: &http-proxy ${HTTP_PROXY}
+x-https-proxy: &https-proxy ${HTTPS_PROXY}
+x-no-proxy: &no-proxy ${HOST_NAME},${HOST_NAME}.xuclh.nhs.uk,localhost,127.0.0.1, opengist*
+x-network: &network
+  HOST_NAME: *host-name
+  HTTP_PROXY: *http-proxy
+  http_proxy: *http-proxy
+  HTTPS_PROXY: *https-proxy
+  https_proxy: *https-proxy
+  NO_PROXY: *no-proxy
+  no_proxy: *no-proxy
+
+# https://opengist.io/docs/installation/docker.html
+services:
+  opengist:
+    image: ghcr.io/thomiceli/opengist:1
+    container_name: opengist
+    restart: unless-stopped
+    ports:
+      - "6157:6157" # HTTP port
+      - "2222:2222" # SSH port, can be removed if you don't use SSH
+    volumes:
+      - "./data:/opengist"
+      - "./config:/config"
+    environment:
+      # OG_LOG_LEVEL: info
+      # other configuration options
+      UID: 1001
+      GID: 1001
+    secrets:
+    - opengist_secrets
+
+secrets:
+  opengist_secrets:
+    file: ./config/secrets.env
