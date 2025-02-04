@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     ports:
       - "6157:6157" # HTTP port
-      - "2222:2222" # SSH port, can be removed if you don't use SSH
+      - "6122:2222" # SSH port, can be removed if you don't use SSH
     volumes:
       - "./data:/opengist"
       - "./config:/config"
@@ -28,8 +28,11 @@ services:
     environment:
       # OG_LOG_LEVEL: info
       # other configuration options
-      UID: 1001
-      GID: 1001
+      # beware the entrypoint script chown's a bunch of stuff
+      # user 8016 is sharris9
+      # group 993 is docker
+      UID: 8016
+      GID: 993
     secrets:
     - opengist_secrets
 
